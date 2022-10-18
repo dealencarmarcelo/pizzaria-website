@@ -263,7 +263,7 @@ h4.items {
   border-radius: 50px;
 }
 
-.order-button:hover {
+.order-button:enabled:hover {
   opacity: 1
 }
 
