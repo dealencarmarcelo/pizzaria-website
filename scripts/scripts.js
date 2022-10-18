@@ -36,6 +36,17 @@ function addItemToCart(item, value, name) {
     pedidos[item].count += 1
     pedidos[item].value = parseFloat((pedidos[item].value + value).toFixed(2))
   }
+
+  document.getElementById("devliery-started").style.display = "none";
+
+  document.getElementById("pizza").style.display = "block";
+  document.getElementById("drink").style.display = "block";
+  document.getElementById("pizza-total").style.display = "block";
+  document.getElementById("drink-total").style.display = "block";
+  document.getElementById("total").style.display = "block";
+
+  document.getElementById("send-order").disabled = false;
+  
   updateTotalCart()
 }
 
@@ -47,4 +58,23 @@ function updateTotalCart() {
     }
   });
   document.getElementById("total").textContent = "Total: R$ " + pedidos['total'].total
+}
+
+function launch_toast() {
+  var x = document.getElementById("toast")
+  x.className = "show";
+  setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
+
+  document.getElementById("pizza").style.display = "none";
+  document.getElementById("drink").style.display = "none";
+  document.getElementById("pizza-total").style.display = "none";
+  document.getElementById("drink-total").style.display = "none";
+  document.getElementById("total").style.display = "none";
+
+
+  document.getElementById("devliery-started").style.display = "block";
+
+  document.getElementById("send-order").disabled = true;
+
+  pedidos = {}
 }
